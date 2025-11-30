@@ -4,17 +4,17 @@
     "num_samples": 1664,
     "accuracy": 0.9399038461538461,
     "prediction_counts": {
-      "0": 1532,
-      "1": 132
+      "0": 1576,
+      "1": 88
     }
   },
   {
     "partition": "women",
     "num_samples": 1498,
-    "accuracy": 0.951935914552737,
+    "accuracy": 0.9465954606141522,
     "prediction_counts": {
-      "0": 1388,
-      "1": 110
+      "0": 1436,
+      "1": 62
     }
   },
   {
@@ -22,44 +22,44 @@
     "num_samples": 105,
     "accuracy": 0.8857142857142857,
     "prediction_counts": {
-      "0": 84,
-      "1": 21
+      "0": 88,
+      "1": 17
     }
   },
   {
     "partition": "middle_aged",
     "num_samples": 2531,
-    "accuracy": 0.9458711971552746,
+    "accuracy": 0.9470564994073489,
     "prediction_counts": {
-      "0": 2343,
-      "1": 188
+      "0": 2408,
+      "1": 123
     }
   },
   {
     "partition": "seniors",
     "num_samples": 526,
-    "accuracy": 0.9562737642585551,
+    "accuracy": 0.935361216730038,
     "prediction_counts": {
-      "0": 493,
-      "1": 33
+      "0": 516,
+      "1": 10
     }
   },
   {
     "partition": "single_parents",
     "num_samples": 999,
-    "accuracy": 0.93993993993994,
+    "accuracy": 0.9329329329329329,
     "prediction_counts": {
-      "0": 901,
-      "1": 98
+      "0": 938,
+      "1": 61
     }
   },
   {
     "partition": "married_with_children",
     "num_samples": 95,
-    "accuracy": 0.968421052631579,
+    "accuracy": 0.9578947368421052,
     "prediction_counts": {
-      "0": 88,
-      "1": 7
+      "0": 89,
+      "1": 6
     }
   },
   {
@@ -67,80 +67,80 @@
     "num_samples": 1987,
     "accuracy": 0.9476597886260695,
     "prediction_counts": {
-      "0": 1854,
-      "1": 133
+      "0": 1906,
+      "1": 81
     }
   },
   {
     "partition": "currently_married",
     "num_samples": 176,
-    "accuracy": 0.9545454545454546,
+    "accuracy": 0.9488636363636364,
     "prediction_counts": {
-      "0": 165,
-      "1": 11
+      "0": 168,
+      "1": 8
     }
   },
   {
     "partition": "currently_unmarried_with_partner",
     "num_samples": 248,
-    "accuracy": 0.9556451612903226,
+    "accuracy": 0.9274193548387096,
     "prediction_counts": {
-      "0": 224,
-      "1": 24
+      "0": 233,
+      "1": 15
     }
   },
   {
     "partition": "currently_single",
     "num_samples": 2750,
-    "accuracy": 0.9443636363636364,
+    "accuracy": 0.944,
     "prediction_counts": {
-      "0": 2542,
-      "1": 208
+      "0": 2623,
+      "1": 127
     }
   },
   {
     "partition": "likely_divorced",
     "num_samples": 523,
-    "accuracy": 0.9330783938814532,
+    "accuracy": 0.9483747609942639,
     "prediction_counts": {
-      "0": 487,
-      "1": 36
+      "0": 505,
+      "1": 18
     }
   },
   {
     "partition": "likely_divorced_with_children",
     "num_samples": 229,
-    "accuracy": 0.9126637554585153,
+    "accuracy": 0.9301310043668122,
     "prediction_counts": {
-      "0": 211,
-      "1": 18
+      "0": 223,
+      "1": 6
     }
   },
   {
     "partition": "likely_divorced_no_children",
     "num_samples": 294,
-    "accuracy": 0.9489795918367347,
+    "accuracy": 0.9625850340136054,
     "prediction_counts": {
-      "0": 276,
-      "1": 18
+      "0": 282,
+      "1": 12
     }
   },
   {
     "partition": "divorced_women",
     "num_samples": 242,
-    "accuracy": 0.9297520661157025,
+    "accuracy": 0.9545454545454546,
     "prediction_counts": {
-      "0": 224,
-      "1": 18
+      "0": 234,
+      "1": 8
     }
   },
   {
     "partition": "divorced_women_with_children",
     "num_samples": 129,
-    "accuracy": 0.9069767441860465,
+    "accuracy": 0.937984496124031,
     "prediction_counts": {
-      "0": 119,
-      "1": 10
+      "0": 125,
+      "1": 4
     }
   },
   {
@@ -148,44 +148,44 @@
     "num_samples": 43,
     "accuracy": 0.9302325581395349,
     "prediction_counts": {
-      "0": 34,
-      "1": 9
+      "0": 36,
+      "1": 7
     }
   },
   {
     "partition": "understands_dutch",
     "num_samples": 113,
-    "accuracy": 0.911504424778761,
+    "accuracy": 0.9380530973451328,
     "prediction_counts": {
-      "0": 107,
-      "1": 6
+      "0": 108,
+      "1": 5
     }
   },
   {
     "partition": "does_not_understand_dutch",
     "num_samples": 3049,
-    "accuracy": 0.9468678255165628,
+    "accuracy": 0.9432600852738603,
     "prediction_counts": {
-      "0": 2813,
-      "1": 236
+      "0": 2904,
+      "1": 145
     }
   },
   {
     "partition": "likely_recent_arrival_non_Dutch",
     "num_samples": 45,
-    "accuracy": 0.9111111111111111,
+    "accuracy": 0.9333333333333333,
     "prediction_counts": {
-      "0": 34,
-      "1": 11
+      "0": 35,
+      "1": 10
     }
   },
   {
     "partition": "less_established_residents_non_Dutch",
     "num_samples": 227,
-    "accuracy": 0.920704845814978,
+    "accuracy": 0.9162995594713657,
     "prediction_counts": {
-      "0": 199,
-      "1": 28
+      "0": 202,
+      "1": 25
     }
   },
   {
@@ -200,73 +200,73 @@
   {
     "partition": "established_residents_non_Dutch",
     "num_samples": 2531,
-    "accuracy": 0.9494271039114974,
+    "accuracy": 0.9435005926511261,
     "prediction_counts": {
-      "0": 2347,
-      "1": 184
+      "0": 2428,
+      "1": 103
     }
   },
   {
     "partition": "established_residents_Dutch",
     "num_samples": 97,
-    "accuracy": 0.9072164948453608,
+    "accuracy": 0.9381443298969072,
     "prediction_counts": {
-      "0": 93,
-      "1": 4
+      "0": 94,
+      "1": 3
     }
   },
   {
     "partition": "charlois",
     "num_samples": 338,
-    "accuracy": 0.9644970414201184,
+    "accuracy": 0.9585798816568047,
     "prediction_counts": {
-      "0": 316,
-      "1": 22
+      "0": 324,
+      "1": 14
     }
   },
   {
     "partition": "delfshaven",
     "num_samples": 424,
-    "accuracy": 0.9457547169811321,
+    "accuracy": 0.9268867924528302,
     "prediction_counts": {
-      "0": 384,
-      "1": 40
+      "0": 400,
+      "1": 24
     }
   },
   {
     "partition": "feijenoord",
     "num_samples": 509,
-    "accuracy": 0.93713163064833,
+    "accuracy": 0.9548133595284872,
     "prediction_counts": {
-      "0": 465,
-      "1": 44
+      "0": 484,
+      "1": 25
     }
   },
   {
     "partition": "ijsselmonde",
     "num_samples": 140,
-    "accuracy": 0.95,
+    "accuracy": 0.9428571428571428,
     "prediction_counts": {
-      "0": 126,
-      "1": 14
+      "0": 129,
+      "1": 11
     }
   },
   {
     "partition": "kralingen_c",
     "num_samples": 135,
-    "accuracy": 0.9703703703703703,
+    "accuracy": 0.9629629629629629,
     "prediction_counts": {
-      "0": 129,
-      "1": 6
+      "0": 130,
+      "1": 5
     }
   },
   {
     "partition": "noord",
     "num_samples": 69,
-    "accuracy": 0.8985507246376812,
+    "accuracy": 0.9130434782608695,
     "prediction_counts": {
-      "0": 59,
-      "1": 10
+      "0": 62,
+      "1": 7
     }
   },
   {
@@ -274,26 +274,26 @@
     "num_samples": 119,
     "accuracy": 0.9243697478991597,
     "prediction_counts": {
-      "0": 111,
-      "1": 8
+      "0": 113,
+      "1": 6
     }
   },
   {
     "partition": "stadscentru",
     "num_samples": 41,
-    "accuracy": 0.926829268292683,
+    "accuracy": 0.8780487804878049,
     "prediction_counts": {
-      "0": 36,
-      "1": 5
+      "0": 40,
+      "1": 1
     }
   },
   {
     "partition": "psychological_obstacles",
     "num_samples": 1554,
-    "accuracy": 0.9543114543114544,
+    "accuracy": 0.9491634491634492,
     "prediction_counts": {
-      "0": 1432,
-      "1": 122
+      "0": 1476,
+      "1": 78
     }
   },
   {
@@ -301,8 +301,8 @@
     "num_samples": 1608,
     "accuracy": 0.9371890547263682,
     "prediction_counts": {
-      "0": 1488,
-      "1": 120
+      "0": 1536,
+      "1": 72
     }
   },
   {
@@ -317,37 +317,37 @@
   {
     "partition": "no_living_situation_obstacles",
     "num_samples": 3151,
-    "accuracy": 0.9454141542367502,
+    "accuracy": 0.9428752776896223,
     "prediction_counts": {
-      "0": 2910,
-      "1": 241
+      "0": 3002,
+      "1": 149
     }
   },
   {
     "partition": "financial_obstacles",
     "num_samples": 1005,
-    "accuracy": 0.9283582089552239,
+    "accuracy": 0.9223880597014925,
     "prediction_counts": {
-      "0": 891,
-      "1": 114
+      "0": 933,
+      "1": 72
     }
   },
   {
     "partition": "no_financial_obstacles",
     "num_samples": 2157,
-    "accuracy": 0.9536393138618452,
+    "accuracy": 0.952712100139082,
     "prediction_counts": {
-      "0": 2029,
-      "1": 128
+      "0": 2079,
+      "1": 78
     }
   },
   {
     "partition": "psychological_financial_obstacles",
     "num_samples": 632,
-    "accuracy": 0.9382911392405063,
+    "accuracy": 0.9272151898734177,
     "prediction_counts": {
-      "0": 555,
-      "1": 77
+      "0": 584,
+      "1": 48
     }
   },
   {
@@ -361,10 +361,10 @@
   {
     "partition": "no_obstacles",
     "num_samples": 1231,
-    "accuracy": 0.9447603574329814,
+    "accuracy": 0.9439480097481722,
     "prediction_counts": {
-      "0": 1148,
-      "1": 83
+      "0": 1183,
+      "1": 48
     }
   }
 ]
