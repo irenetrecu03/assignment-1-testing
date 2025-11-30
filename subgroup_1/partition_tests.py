@@ -19,7 +19,7 @@ class PartitionTester:
     def __init__(self, data_path):
         self.DATA_PATH = data_path
         self.TARGET = "checked"
-        self.CHILDREN_COL = "relationship_child_current_number"
+        self.CHILDREN_COL = "relatie_kind_huidige_aantal"
 
         # ---------- LOAD & PREPARE DATA ----------
         df_raw = pd.read_csv(self.DATA_PATH, header=None)
