@@ -141,7 +141,7 @@ class MetamorphicTester:
         """
         Xf = X.copy()
 
-        cols = [c for c in Xf.columns if c.startswith("persoonlijke_eigenschappen_nl")]
+        cols = [c for c in Xf.columns if c.startswith("persoonlijke_eigenschappen")]
 
         for col in cols:
             Xf[col] = Xf[col].apply(lambda v: 1 - v if v in (0, 1) else v)
@@ -149,7 +149,7 @@ class MetamorphicTester:
         return Xf
 
 
-    def compare_changes(self, y_pred_original, y_pred_flipped):
+    def compare_changes(self, name, y_pred_original, y_pred_flipped, threshold=0.02):
         # Compare predictions
         changes = (y_pred_original != y_pred_flipped)
         n_changed = np.sum(changes)
@@ -164,6 +164,29 @@ class MetamorphicTester:
         changed_indices = np.where(changes)[0]
         print("Changed indices:", changed_indices.tolist())
 
+        assert frac_changed <= threshold, \
+            f"{name} test FAILED: {frac_changed:.2%} changed (threshold {threshold:.2%})"
+
+        print(f"{name} test PASSED ✔ (within threshold {threshold:.2%})")
+
+    def run_test(self, test_name, model, y_pred_original, X_modified):
+        """
+        Generic wrapper for running a single metamorphic test.
+        - Applies modifications
+        - Predicts
+        - Compares results
+        - Catches assertion errors without stopping execution
+        """
+        print(f"\n--- {test_name} ---")
+
+        try:
+            y_pred_new = self._predict(model, X_modified)
+            self.compare_changes(test_name, y_pred_original, y_pred_new)
+
+        except AssertionError as e:
+            print(f"[FAIL] {test_name}: {e}")
+
+
     # -------------------------------------------------------------
     # MAIN PUBLIC METHOD
     # -------------------------------------------------------------
@@ -175,53 +198,19 @@ class MetamorphicTester:
 
         print("\n=== Running Metamorphic Tests ===\n")
 
-        # -----------------------------
         # 1. ORIGINAL PREDICTIONS
-        # -----------------------------
         y_pred_original = self._predict(model, self.X_test)
-
         print("Original accuracy:",
-              metrics.accuracy_score(self.y_test, y_pred_original))
+            metrics.accuracy_score(self.y_test, y_pred_original))
 
-        # -----------------------------
-        # 2. GENDER-FLIP TEST
-        # -----------------------------
-        print("\n--- Gender Flip Test ---")
+        # Define all tests in one place
+        tests = [
+            ("Gender Flip Test",            self._flip_gender(self.X_test)),
+            ("Neighborhood Flip Test",      self._flip_adres_columns(self.X_test)),
+            ("Relationship Offset Test",    self._shift_relatie_columns(self.X_test, delta=1)),
+            ("Language Flip Test",          self._flip_language(self.X_test)),
+        ]
 
-        X_flipped_gender = self._flip_gender(self.X_test)
-        y_pred_flipped_gender = self._predict(model, X_flipped_gender)
-
-        self.compare_changes(y_pred_original, y_pred_flipped_gender)
-
-        # -----------------------------
-        # 2. NEIGHBORHOOD-FLIP TEST
-        # -----------------------------
-        print("\n--- Neighborhood Flip Test ---")
-
-        X_flipped_neighborhood = self._flip_adres_columns(self.X_test)
-        y_pred_flipped_neighborhood = self._predict(model, X_flipped_neighborhood)
-
-        self.compare_changes(y_pred_original, y_pred_flipped_neighborhood)
-
-        # -----------------------------
-        # 3. ADD OFFSET RELATIONSHIP TEST
-        # -----------------------------
-        print("\n--- Offset Relationship Test ---")
-
-        X_relationship = self._flip_adres_columns(self.X_test)
-        y_pred_relationship = self._predict(model, X_relationship)
-
-        self.compare_changes(y_pred_original, y_pred_relationship)
-
-        # -----------------------------
-        # 4. LANGUAGE FLIP TEST
-        # -----------------------------
-        print("\n--- Flip Language Test ---")
-
-        X_flipped_language = self._flip_language(self.X_test)
-        y_pred_flipped_language = self._predict(model, X_flipped_language)
-
-        self.compare_changes(y_pred_original, y_pred_flipped_language)
-
-
-
+        # Run all tests
+        for test_name, X_transformed in tests:
+            self.run_test(test_name, model, y_pred_original, X_transformed)
