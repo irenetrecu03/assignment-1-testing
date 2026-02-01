@@ -9,36 +9,28 @@ class PartitionTester:
         self.TARGET = "checked"
         self.CHILDREN_COL = "relatie_kind_huidige_aantal"
 
-        # ---------- LOAD DATA (OPTIMIZED) ----------
-        # Fix: Read only the first row to get headers (avoids DtypeWarning & reading file twice)
         df_header = pd.read_csv(self.DATA_PATH, nrows=0)
         colnames = df_header.columns.tolist()
         
-        # Load actual data
         df = pd.read_csv(self.DATA_PATH, skiprows=1, names=colnames, low_memory=False)
 
-        # Convert target
         df[self.TARGET] = pd.to_numeric(df[self.TARGET], errors="coerce")
         df = df.dropna(subset=[self.TARGET]).copy()
         df[self.TARGET] = df[self.TARGET].astype(int)
 
-        # Prepare X, y
         X = df.drop(columns=[self.TARGET]).apply(pd.to_numeric, errors="coerce").fillna(0)
         y = df[self.TARGET]
 
-        # Deterministic test split
         _, self.X_test, _, self.y_test = train_test_split(
             X, y, test_size=0.3, random_state=42, stratify=y
         )
 
-        # ---------- DEFINE PARTITIONS ----------
         self.partitions = [
             {"name": "No children",         "condition": lambda df: df[self.CHILDREN_COL] == 0},
             {"name": "One child",           "condition": lambda df: df[self.CHILDREN_COL] == 1},
             {"name": "Two or more children","condition": lambda df: df[self.CHILDREN_COL] >= 2},
         ]
 
-    # ... (Keep _load_model and _predict exactly as you had them) ...
     def _load_model(self, m):
         if isinstance(m, str):
             return ort.InferenceSession(m, providers=["CPUExecutionProvider"])
@@ -105,16 +97,12 @@ class PartitionTester:
             print(f"Acc: {acc:.4f} | Gap: {gap:.4f}")
             print("")
 
-        # ---------------------------------------------------------
-        # ASSERTION SECTION
-        # ---------------------------------------------------------
         print("==========================================")
         print("          FAIRNESS CHECKS")
         print("==========================================")
 
         failed = False
 
-        # 1. Accuracy Check
         acc_range = max(accuracies) - min(accuracies)
         print(f"1. Accuracy Range Check (Threshold 0.07):")
         print(f"   Calculated Range: {acc_range:.4f}")
@@ -131,7 +119,6 @@ class PartitionTester:
 
         print("-" * 30)
 
-        # 2. Fraud Rate Gap Check
         max_gap = max(fraud_rate_diffs)
         print(f"2. Prediction Gap Check (Threshold 0.10):")
         print(f"   Max Gap Found:    {max_gap:.4f}")
